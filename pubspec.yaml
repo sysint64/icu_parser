@@ -1,7 +1,6 @@
 name: icu_parser
-description: An extraction icu parser from the intl_translation package
+description: An extraction of icu parser from the intl_translation package
 version: 0.17.10+1
-author:
 homepage: https://github.com/sysint64/icu_parser.git
 
 environment:
