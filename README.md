@@ -1,3 +1,3 @@
 # icu_parser
 
-An extraction ICU Parser from [https://pub.dev/packages/intl_translation](intl_translation) package.
+An extraction or ICU Parser from the [intl_translation](https://pub.dev/packages/intl_translation) package.
