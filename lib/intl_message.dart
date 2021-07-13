@@ -381,6 +381,7 @@ class VariableSubstitution extends Message {
   /// (and its arguments) are definitely available.
   VariableSubstitution.named(String name, Message? parent) : super(parent) {
     _variableNameUpper = name.toUpperCase();
+    variableNameFromParser = name;
   }
 
   /// The index in the list of parameters of the containing function.
@@ -406,6 +407,9 @@ class VariableSubstitution extends Message {
   /// The variable name we get from parsing. This may be an all uppercase
   /// version of the Dart argument name.
   String? _variableNameUpper;
+
+  /// The original variable name we get from parsing.
+  String variableNameFromParser = '';
 
   /// The name of the variable in the parameter list of the containing function.
   /// Used when generating code for the interpolation.
