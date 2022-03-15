@@ -1,13 +1,13 @@
 name: icu_parser
 description: An extraction of icu parser from the intl_translation package
-version: 1.0.1
+version: 1.2.0
 homepage: https://github.com/sysint64/icu_parser.git
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  analyzer: ^1.2.0
-  petitparser: ^4.0.2
+  analyzer: ^3.3.1
+  petitparser: ^4.4.0
 
 dev_dependencies:
