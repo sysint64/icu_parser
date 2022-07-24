@@ -1,3 +1,6 @@
+## [1.3.0]
+  * Bump analyzer version to 4.3.0.
+
 ## [1.2.0]
   * Updated dependencies.
 
