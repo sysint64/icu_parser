@@ -137,8 +137,7 @@ abstract class Message {
     NamedExpression? args = arguments.firstWhere(
         (each) => each is NamedExpression && each.name.label.name == 'args',
         orElse: () => null);
-    var parameterNames =
-        outerArgs.parameters.map((x) => x.identifier!.name).toList();
+    var parameterNames = outerArgs.parameters.map((x) => x.name!.lexeme).toList();
     var hasArgs = args != null;
     var hasParameters = !outerArgs.parameters.isEmpty;
     if (!nameAndArgsGenerated && !hasArgs && hasParameters) {
@@ -246,16 +245,17 @@ abstract class Message {
   /// For a method foo in class Bar we allow either "foo" or "Bar_Foo" as the
   /// name.
   static String? classPlusMethodName(MethodInvocation node, String? outerName) {
-    ClassOrMixinDeclaration? classNode(n) {
-      if (n == null) return null;
-      if (n is ClassOrMixinDeclaration) return n;
-      return classNode(n.parent);
+    String? name;
+    for (AstNode? parent = node; parent != null; parent = parent.parent) {
+      if (parent is ClassDeclaration ||
+          parent is MixinDeclaration ||
+          parent is EnumDeclaration) {
+        name = (parent as NamedCompilationUnitMember).name.lexeme;
+        break;
+      }
     }
 
-    var classDeclaration = classNode(node);
-    return classDeclaration == null
-        ? null
-        : "${classDeclaration.name.token}_$outerName";
+    return name == null ? null : '${name}_$outerName';
   }
 
   /// Turn a value, typically read from a translation file or created out of an

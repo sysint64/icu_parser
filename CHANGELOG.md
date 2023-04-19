@@ -1,3 +1,6 @@
+## [1.4.0]
+  * Bump minimum analyzer version to 5.2.0.
+
 ## [1.3.0]
   * Bump analyzer version to 4.3.0.
 
